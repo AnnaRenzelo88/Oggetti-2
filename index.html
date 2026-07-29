@@ -15,14 +15,63 @@ let agenda = {
       {'nome': 'Nicola', 'telefono': '3331111111'},
       {'nome': 'Lorenzo', 'telefono': '3332222222'},
       {'nome': 'Paola', 'telefono': '3333333333'},
-      {'nome': 'Jenny', 'telefono': '3334444444'}
+      {'nome': 'Jenny', 'telefono': '3334444444'},
   ],
+
+    mostraContatti : function() {
+    this.contatti.forEach((contatto) => console.log(`${contatto.nome} - ${contatto.telefono}`));
+    },
+
+    mostraSingoloContatto : function(nome) {
+    for (let i = 0; i < this.contatti.length; i++) {
+    let contatto = this.contatti[i];
+    if (contatto.nome == nome) {
+        console.log(`${contatto.nome} - ${contatto.telefono}`)
+    }else if(contatto.nome != nome){
+        console.log("contatto non presente in rubrica")
+    }
+    }
+    },
+
+    
+    eliminaContatto : function(nomeRimosso){
+    let index = this.contatti.indexOf(nomeRimosso);
+    this.contatti.splice(index,1)
+    },
+
+    
+    aggiungiContatto : function(nome){
+    this.contatti.push(nome)
+    },
+
+
+//modifica contatto
+
+    modificaContatto : function(nome, telefono) {
+    for (let i = 0; i < this.contatti.length; i++) {
+    let contattoModificato = this.contatti[i];
+    if (contattoModificato.nome == nome) {
+        contattoModificato.telefono = telefono;
+        
+        console.log(`contatto ${nome} aggiornato con ${5555555555}`);
+    }
+    }
+    }
+
 
 }
 
 
+agenda.mostraContatti();
+agenda.mostraSingoloContatto('pippo');
+agenda.eliminaContatto("Jenny");
+console.log(agenda)
+agenda.aggiungiContatto("Geronimo")
+agenda.modificaContatto("Nicola")
+
 
 </script>
+
 
 
 
